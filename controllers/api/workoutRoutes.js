@@ -1,14 +1,18 @@
 const router = require('express').Router();
 const Workout = require('../../models');
 
-//What routes are needed?
-    //Exercise.html
-        //GET excercise and Stats
-        
-        
-        //DELETE an excercise
+//GET excercise and Stats
+router.get('/api/workouts', (req,res) => {
+    Workout.find({})
+    .then((workoutdb) => {
+        res.json(workoutdb);
+    })
+    .catch((err) => {
+        res.status(500).json(err);
+    })
+});
 
-    //POST a new excercise
+//POST a new excercise
 router.post('/api/workouts', (req, res) => {
     //creating a new workout
         //({}) allows for multiple workouts to be created as an object
@@ -40,7 +44,8 @@ router.put('/api/workouts/:id', (req, res) => {
     })
 });
 
-router.delete('/api/workout:id', (req, res) => {
+//DELETE an excercise
+router.delete('/api/workout/:id', (req, res) => {
     Workout.findByIdAndDelete({
         _id: req.params.id
     },
@@ -56,4 +61,6 @@ router.delete('/api/workout:id', (req, res) => {
         res.status(500).json(err);
     })
 });
+
+
 
