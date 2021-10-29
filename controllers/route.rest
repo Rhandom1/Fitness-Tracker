@@ -1,0 +1,7 @@
+GET http://localhost:3000/index
+
+###
+GET http://localhost:3000/excercise
+
+###
+GET http://localhost:3000/stats
