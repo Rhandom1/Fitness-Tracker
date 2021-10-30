@@ -62,5 +62,21 @@ router.delete('/api/workout/:id', (req, res) => {
     })
 });
 
-
+//GET stats?
+    //What am I returning here?
+    router.get('/', (req, res) => {
+        db.Workout.aggregate([
+            {
+                $addFields: {
+                    durationTotal: { $sum: '$exercise.duration'},
+                },
+            },
+        ])
+        .then((getWorkout) => {
+            res.json(getWorkout);
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        });
+    });
 
