@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const {Workout} = require("../../models");
 
-console.log(Workout);
 //GET excercise and Stats
 router.get("/workouts", (req, res) => {
   Workout.find({})
