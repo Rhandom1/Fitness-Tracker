@@ -48,7 +48,7 @@ router.put("/workouts/:id", (req, res) => {
 });
 
 //DELETE an excercise
-router.delete("/workout/:id", (req, res) => {
+router.delete("/workouts/:id", (req, res) => {
   Workout.findByIdAndDelete(
     {
       _id: req.params.id,
@@ -75,7 +75,7 @@ router.get("/duration", (req, res) => {
   Workout.aggregate([
     {
       $addFields: {
-        durationTotal: { $sum: "$exercise.duration" },
+        durationTotal: { $sum: "$exercises.duration" },
       },
     },
   ])

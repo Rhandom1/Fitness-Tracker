@@ -1,16 +1,7 @@
 const router = require("express").Router();
 const path = require('path');
 
-//import to server file
 
-//What routes are needed?
-    //Exercise.html
-        //GET page
-        //POST a new excercise
-        //PUT an excercise
-        //DELETE an excercise
-    //stats.html
-        //GET stats
 
 router.get('/exercise', async (req, res) => {
     try {
