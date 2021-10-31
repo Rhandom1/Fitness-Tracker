@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const workoutsRoutes = require('./workoutsRoutes');
+const workoutRoutes = require('./workoutRoutes');
 
-router.use('/workouts', workoutsRoutes);
+
+//Prepends any route in the workoutRoutes
+router.use('/api', workoutRoutes);
 
 
 module.exports = router;
