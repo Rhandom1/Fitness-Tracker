@@ -23,7 +23,7 @@ router.get('/exercise', (req, res) => {
 router.get('/stats', (req, res) => {
     console.log("You found the stats page!")
     try {
-        res.sendFile(path.join(___dirname, "../public/stats.html"));
+        res.sendFile(path.join(__dirname, "../public/stats.html"));
     }
     catch(err) {
         res.status(500).json(err);

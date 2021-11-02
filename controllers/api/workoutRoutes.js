@@ -68,7 +68,7 @@ router.delete("/workouts/:id", (req, res) => {
 
 //GET stats?
 //What am I returning here?
-router.get("/duration", (req, res) => {
+router.get("/workouts/range", (req, res) => {
     console.log("You hit duration!");
   //all purpose tool for data manipulation
   Workout.aggregate([
