@@ -22,6 +22,7 @@ app.use(apiRoutes);
 const homeRoutes = require("./controllers/homeRoutes");
 app.use(homeRoutes);
 
+console.log(process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { 
     useNewUrlParser: true, 
     useUnifiedTopology: true
