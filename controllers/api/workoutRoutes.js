@@ -37,6 +37,8 @@ router.put("/workouts/:id", (req, res) => {
         excercise: req.body,
       },
     }
+    // validates data to schema
+    { new:true, runValidators:true}
   )
     .then((workoutdb) => {
       res.json(workoutdb);
