@@ -3,13 +3,21 @@ const {Workout} = require("../../models");
 
 //GET excercise and Stats
 router.get("/workouts", (req, res) => {
-  Workout.find({})
-    .then((workoutdb) => {
-      res.json(workoutdb);
-    })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+  Workout.aggregate([
+    {
+      $addFields: {
+        totalDuration: {
+          $sum: '$exercise.duration',
+        },
+      },
+    },
+  ])
+  .then((workoutdb) => {
+    res.join(err);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
 });
 
 //POST a new excercise
