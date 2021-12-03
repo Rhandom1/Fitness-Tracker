@@ -78,8 +78,10 @@ router.get("/workouts/range", (req, res) => {
       },
     },
   ])
-    .then((getWorkout) => {
-      res.json(getWorkout);
+  .sort({ _id: -1 })
+  .limit(7)
+    .then((workoutdb) => {
+      res.json(workoutdb);
     })
     .catch((err) => {
       res.status(500).json(err);
